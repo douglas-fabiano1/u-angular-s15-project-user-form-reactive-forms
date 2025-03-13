@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CountriesService } from './services/countries.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'user-form-reactive-forms';
+export class AppComponent implements OnInit {
+  constructor(private readonly _countriesService: CountriesService) {}
+
+  ngOnInit() {
+    this._countriesService
+      .getCountries()
+      .subscribe((countriesResponse: any) => {
+        console.log('countriesResponse', countriesResponse);
+      });
+  }
 }
