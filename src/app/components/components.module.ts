@@ -3,10 +3,11 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
 import { PipesModule } from '../pipes/pipes.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { CommonModule } from '@angular/common';
+import { GeneralInformationsComponent } from './general-informations/general-informations.component';
 
 @NgModule({
-  declarations: [UsersListComponent],
+  declarations: [UsersListComponent, GeneralInformationsComponent],
   imports: [CommonModule, AngularMaterialModule, PipesModule],
-  exports: [UsersListComponent],
+  exports: [UsersListComponent, GeneralInformationsComponent],
 })
-export class ComponentsModule {}
+export class ComponentsModule { }
