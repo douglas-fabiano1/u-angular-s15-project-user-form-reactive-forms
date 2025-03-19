@@ -14,14 +14,14 @@ import { take } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   usersList: UsersListResponse = [];
-  currentTabIndex: number = 0;
+  currentTabIndex: number = 1;
 
   constructor(
     private readonly _countriesService: CountriesService,
     private readonly _statesService: StatesService,
     private readonly _citiesService: CitiesService,
     private readonly _usersService: UsersService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // this._countriesService
