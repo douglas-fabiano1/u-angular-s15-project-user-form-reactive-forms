@@ -1,30 +1,30 @@
 <div class="p-4">
   <div class="p-4 grid lg:grid-cols-3 gap-4">
-    <app-user-info-item title="Nome" [text]="'Fulano'"></app-user-info-item>
-    <app-user-info-item
-      title="Email"
-      [text]="'fulando@hotmail.com'"
-    ></app-user-info-item>
+    <app-user-info-item title="Nome" [text]="user?.name"></app-user-info-item>
+    <app-user-info-item title="Email" [text]="user?.email"></app-user-info-item>
   </div>
   <div class="p-4 grid lg:grid-cols-3 gap-4">
-    <app-user-info-item title="País" [text]="'Brazil'"></app-user-info-item>
+    <app-user-info-item
+      title="País"
+      [text]="user?.country"
+    ></app-user-info-item>
     <app-user-info-item
       title="Estado"
-      [text]="'São Paulo'"
+      [text]="user?.state"
     ></app-user-info-item>
   </div>
   <div class="p-4 grid lg:grid-cols-3 gap-4">
     <app-user-info-item
       title="Estado Civil"
-      [text]="'Casado'"
+      [text]="user?.maritalStatus?.toString()"
     ></app-user-info-item>
     <app-user-info-item
       title="Renda Mensal"
-      [text]="'R$ ' + '5.000,00'"
+      [text]="user?.monthlyIncome?.toString()"
     ></app-user-info-item>
     <app-user-info-item
       title="Data de Nascimento"
-      [text]="'11/04/1988'"
+      [text]="user?.birthDate"
     ></app-user-info-item>
   </div>
 </div>
