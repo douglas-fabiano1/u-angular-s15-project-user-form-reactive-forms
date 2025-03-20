@@ -7,9 +7,10 @@ import { GeneralInformationsComponent } from './general-informations/general-inf
 import { UserInfoItemComponent } from './user-info-item/user-info-item.component';
 import { ContactInformationsComponent } from './contact-informations/contact-informations.component';
 import { PhoneListComponent } from './contact-informations/components/phone-list/phone-list.component';
+import { AddressListComponent } from './contact-informations/components/address-list/address-list.component';
 
 @NgModule({
-  declarations: [UsersListComponent, GeneralInformationsComponent, UserInfoItemComponent, ContactInformationsComponent, PhoneListComponent],
+  declarations: [UsersListComponent, GeneralInformationsComponent, UserInfoItemComponent, ContactInformationsComponent, PhoneListComponent, AddressListComponent],
   imports: [CommonModule, AngularMaterialModule, PipesModule],
   exports: [UsersListComponent, GeneralInformationsComponent, ContactInformationsComponent],
 })
