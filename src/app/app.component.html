@@ -9,11 +9,13 @@
         </mat-tab>
         <mat-tab label="Contato">
           <app-contact-informations
-            [user]="usersList[1]"
+            [user]="usersList[0]"
           ></app-contact-informations>
         </mat-tab>
         <mat-tab label="Dependente">
-          <app-dependents-list></app-dependents-list>
+          <app-dependents-list
+            [dependentsList]="usersList[0]?.dependentsList"
+          ></app-dependents-list>
         </mat-tab>
       </mat-tab-group>
     </mat-card-content>
