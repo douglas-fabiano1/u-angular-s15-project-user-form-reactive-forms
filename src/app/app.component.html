@@ -5,6 +5,12 @@
         [usersList]="usersList"
         (onUserSelected)="onUserSelected($event)"
       ></app-users-list>
+      <app-buttons-container
+        *ngIf="userSelectedIndex !== undefined"
+        [isInEditMode]="isInEditMode"
+        (onEditButton)="onEditButton()"
+        (onCancelButton)="onCancelButton()"
+      ></app-buttons-container>
       <mat-tab-group
         [(selectedIndex)]="currentTabIndex"
         *ngIf="userSelectedIndex !== undefined"

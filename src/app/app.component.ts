@@ -14,6 +14,8 @@ import { IUser } from './interfaces/user/user-interface';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  isInEditMode: boolean = false;
+
   userSelectedIndex: number | undefined;
   userSelected: IUser = {} as IUser;
 
@@ -25,7 +27,7 @@ export class AppComponent implements OnInit {
     private readonly _statesService: StatesService,
     private readonly _citiesService: CitiesService,
     private readonly _usersService: UsersService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // this._countriesService
@@ -58,5 +60,13 @@ export class AppComponent implements OnInit {
       this.userSelected = structuredClone(userFound);
       this.currentTabIndex = 0;
     }
+  }
+
+  onCancelButton() {
+    this.isInEditMode = false;
+  }
+
+  onEditButton() {
+    this.isInEditMode = true;
   }
 }
