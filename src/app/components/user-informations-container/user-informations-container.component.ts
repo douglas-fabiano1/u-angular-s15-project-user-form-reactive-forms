@@ -9,13 +9,13 @@ import { UserFormController } from './user-form-controller';
   styleUrl: './user-informations-container.component.scss'
 })
 export class UserInformationsContainerComponent extends UserFormController implements OnChanges {
-  currentTabIndex: number = 1;
+  currentTabIndex: number = 0;
 
   @Input({ required: true }) isInEditMode: boolean = false;
   @Input({ required: true }) userSelected: IUser = {} as IUser;
 
   ngOnChanges(changes: SimpleChanges) {
-    this.currentTabIndex = 1;
+    this.currentTabIndex = 0;
 
     const HAS_USER_SELECTED = changes['userSelected'] && Object.keys(changes['userSelected'].currentValue).length > 0;
 
