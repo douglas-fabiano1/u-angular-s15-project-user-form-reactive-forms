@@ -3,6 +3,7 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
 import { PipesModule } from '../pipes/pipes.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { GeneralInformationsComponent } from './general-informations/general-informations.component';
 import { UserInfoItemComponent } from './user-info-item/user-info-item.component';
 import { ContactInformationsComponent } from './contact-informations/contact-informations.component';
@@ -34,7 +35,7 @@ import { DependentsListEditComponent } from './dependents-list-edit/dependents-l
     AddressListEditComponent,
     DependentsListEditComponent,
   ],
-  imports: [CommonModule, AngularMaterialModule, PipesModule],
+  imports: [CommonModule, AngularMaterialModule, PipesModule, ReactiveFormsModule],
   exports: [
     UsersListComponent,
     GeneralInformationsComponent,
