@@ -11,6 +11,8 @@ import { UserFormController } from './user-form-controller';
 import { CountriesService } from '../../services/countries.service';
 import { take } from 'rxjs';
 import { CountriesList } from '../../types/countries-list';
+import { StatesList } from '../../types/states-list';
+import { StatesService } from '../../services/states.service';
 
 @Component({
   selector: 'app-user-informations-container',
@@ -25,8 +27,10 @@ export class UserInformationsContainerComponent
   currentTabIndex: number = 0;
 
   countriesList: CountriesList = [];
+  statesList: StatesList = [];
 
   private readonly _countriesService = inject(CountriesService);
+  private readonly _statesService = inject(StatesService);
 
   @Input({ required: true }) isInEditMode: boolean = false;
   @Input({ required: true }) userSelected: IUser = {} as IUser;
@@ -44,7 +48,22 @@ export class UserInformationsContainerComponent
 
     if (HAS_USER_SELECTED) {
       this.fulfillUserForm(this.userSelected);
+
+      this.getStatesList(this.userSelected.country);
     }
+  }
+
+  onCountrySelected(countryName: string) {
+    this.getStatesList(countryName);
+  }
+
+  private getStatesList(country: string) {
+    this._statesService
+      .getStates(country)
+      .pipe(take(1))
+      .subscribe((statesList: StatesList) => {
+        this.statesList = statesList;
+      });
   }
 
   private getCountriesList() {
