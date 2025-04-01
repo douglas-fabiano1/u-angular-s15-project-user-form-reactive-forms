@@ -28,40 +28,5 @@ export class AddressListComponent implements OnChanges {
 
   prepareAddressListToDisplay() {
     this.addressListToDisplay = [];
-
-    Object.keys(addressTypeDescriptionMap)
-      .map(Number)
-      .forEach((addressType: number) => {
-        const addressFound = this.userAddressList?.find(
-          (userAddress) => userAddress.type === addressType
-        );
-
-        this.addressListToDisplay.push(
-          this.returnAddressToDisplay(addressFound, addressType)
-        );
-      });
-  }
-  returnAddressToDisplay(
-    address: IAddress | undefined,
-    addressType: number
-  ): IAddressToDisplay {
-    if (!address) {
-      return {
-        typeDescription:
-          addressTypeDescriptionMap[addressType as AddressTypeEnum],
-        type: addressType,
-        street: '-',
-        complement: '-',
-        country: '-',
-        state: '-',
-        city: '-',
-      };
-    }
-
-    return {
-      typeDescription:
-        addressTypeDescriptionMap[addressType as AddressTypeEnum],
-      ...address,
-    };
   }
 }
