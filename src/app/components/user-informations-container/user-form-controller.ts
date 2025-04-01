@@ -7,6 +7,7 @@ import { DependentsList } from '../../types/dependents-list';
 import { convertPtBrDateToDateObj } from '../../utils/convert-pt-br-date-to-date-obj';
 import { preparePhoneList } from '../../utils/prepare-phone-list';
 import { PhoneTypeEnum } from '../../enums/phone-type.enum';
+import { prepareAddressList } from '../../utils/prepare-address-list';
 
 export class UserFormController {
   userForm!: FormGroup;
@@ -76,30 +77,36 @@ export class UserFormController {
   }
 
   private fulfillAddressList(userAddressList: AddressList) {
-    userAddressList.forEach((address) => {
+    prepareAddressList(userAddressList, false, (address) => {
       this.addressList.push(
         this._fb.group({
-          type: [address.type, Validators.required],
-          street: [address.street, Validators.required],
-          complement: [address.complement, Validators.required],
-          country: [address.country, Validators.required],
-          state: [address.state, Validators.required],
-          city: [address.city, Validators.required],
+          type: [address.type],
+          typeDescription: [{ value: address.typeDescription, disabled: true }],
+          street: [address.street],
+          complement: [address.complement],
+          country: [address.country],
+          state: [address.state],
+          city: [address.city],
         })
       );
     });
+
+    console.log('addressList', this.addressList);
   }
 
   private fulfillPhoneList(userPhoneList: PhoneList) {
     preparePhoneList(userPhoneList, false, (phone) => {
-      const phoneValidators = phone.type === PhoneTypeEnum.EMERGENCY ? [] : [Validators.required];
+      const phoneValidators =
+        phone.type === PhoneTypeEnum.EMERGENCY ? [] : [Validators.required];
 
-      this.phoneList.push(this._fb.group({
-        type: [phone.type],
-        typeDescription: [phone.typeDescription],
-        number: [phone.phoneNumber, phoneValidators],
-      }));
-    })
+      this.phoneList.push(
+        this._fb.group({
+          type: [phone.type],
+          typeDescription: [phone.typeDescription],
+          number: [phone.phoneNumber, phoneValidators],
+        })
+      );
+    });
 
     console.log('form phoneList', this.phoneList);
   }
@@ -107,7 +114,7 @@ export class UserFormController {
   private fulfillGeneralInformations(user: IUser) {
     const newUser = {
       ...user,
-      birthDate: convertPtBrDateToDateObj(user.birthDate)
+      birthDate: convertPtBrDateToDateObj(user.birthDate),
     };
     this.generalInformations.patchValue(newUser);
   }
