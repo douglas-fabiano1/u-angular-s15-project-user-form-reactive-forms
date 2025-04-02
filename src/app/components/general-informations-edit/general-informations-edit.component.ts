@@ -77,7 +77,7 @@ export class GeneralInformationsEditComponent implements OnInit, OnChanges {
     );
   }
 
-  watchStateFormChangesAndFilter() {
+  private watchStateFormChangesAndFilter() {
     this.stateControl.valueChanges.subscribe(this.filterStatesList.bind(this));
   }
 
