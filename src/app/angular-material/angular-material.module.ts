@@ -8,10 +8,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  imports: [MatButtonModule, MatCardModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatRadioModule, MatDatepickerModule],
-  exports: [MatButtonModule, MatCardModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatRadioModule, MatDatepickerModule],
+  imports: [MatButtonModule, MatCardModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatRadioModule, MatDatepickerModule, MatIconModule],
+  exports: [MatButtonModule, MatCardModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatRadioModule, MatDatepickerModule, MatIconModule],
   providers: [provideNativeDateAdapter(),
   { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
   ],

@@ -1,9 +1,9 @@
+import { DependentsList } from './../../types/dependents-list';
 import { inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUser } from '../../interfaces/user/user-interface';
 import { PhoneList } from '../../types/phone-list';
 import { AddressList } from '../../types/address-list';
-import { DependentsList } from '../../types/dependents-list';
 import { convertPtBrDateToDateObj } from '../../utils/convert-pt-br-date-to-date-obj';
 import { preparePhoneList } from '../../utils/prepare-phone-list';
 import { PhoneTypeEnum } from '../../enums/phone-type.enum';
@@ -26,6 +26,10 @@ export class UserFormController {
     return this.userForm.get('generalInformations') as FormGroup;
   }
 
+  get contactInformations(): FormGroup {
+    return this.userForm.get('contactInformations') as FormGroup;
+  }
+
   get phoneList(): FormArray {
     return this.userForm.get('contactInformations.phoneList') as FormArray;
   }
@@ -38,6 +42,18 @@ export class UserFormController {
     return this.userForm.get('dependentsList') as FormArray;
   }
 
+  get generalInformationsValid(): boolean {
+    return this.generalInformations.valid;
+  }
+
+  get contactInformationsValid(): boolean {
+    return this.contactInformations.valid;
+  }
+
+  get dependentsListValid(): boolean {
+    return this.dependentsList.valid;
+  }
+
   fulfillUserForm(user: IUser) {
     this.resetUserForm();
     this.fulfillGeneralInformations(user);
@@ -47,6 +63,9 @@ export class UserFormController {
     this.fulfillAddressList(user.addressList);
 
     this.fulfillDependentsList(user.dependentsList);
+
+    this.userForm.markAllAsTouched();
+    this.userForm.updateValueAndValidity();
   }
 
   addDependent() {
