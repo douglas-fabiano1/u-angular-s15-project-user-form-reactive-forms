@@ -32,17 +32,14 @@ export class AppComponent implements OnInit {
     // this._countriesService
     //   .getCountries()
     //   .subscribe((countriesResponse: any) => {
-    //     console.log('countriesResponse', countriesResponse);
     //   });
 
     // this._statesService.getStates('Brazil').subscribe((statesResponse) => {
-    //   console.log('stateResponse', statesResponse);
     // });
 
     // this._citiesService
     //   .getCities('Brazil', 'São Paulo')
     //   .subscribe((citiesResponse) => {
-    //     console.log('citiesResponse', citiesResponse);
     //   });
 
     this._usersService

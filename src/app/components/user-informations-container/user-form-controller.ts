@@ -46,8 +46,6 @@ export class UserFormController {
     this.fulfillAddressList(user.addressList);
 
     this.fulfillDependentsList(user.dependentsList);
-
-    console.log(this.userForm);
   }
 
   private resetUserForm() {
@@ -98,8 +96,6 @@ export class UserFormController {
         )
       );
     });
-
-    console.log('addressList', this.addressList);
   }
 
   private fulfillPhoneList(userPhoneList: PhoneList) {
@@ -115,8 +111,6 @@ export class UserFormController {
         })
       );
     });
-
-    console.log('form phoneList', this.phoneList);
   }
 
   private fulfillGeneralInformations(user: IUser) {

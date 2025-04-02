@@ -37,7 +37,6 @@ export class GeneralInformationsEditComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
     this.countriesListFiltered = this.countriesList;
     this.statesListFiltered = this.statesList;
   }

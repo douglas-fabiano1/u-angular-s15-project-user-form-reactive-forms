@@ -16,5 +16,3 @@ export const maritalStatusArray = Object.keys(maritalStatusDescriptionMap)
       description: maritalStatusDescriptionMap[key as MaritalStatusEnum],
     };
   });
-
-console.log('maritalStatusArray', maritalStatusArray);
