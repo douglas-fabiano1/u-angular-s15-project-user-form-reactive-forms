@@ -22,8 +22,7 @@ import { StatesService } from '../../services/states.service';
 })
 export class UserInformationsContainerComponent
   extends UserFormController
-  implements OnInit, OnChanges
-{
+  implements OnInit, OnChanges {
   currentTabIndex: number = 0;
 
   countriesList: CountriesList = [];
