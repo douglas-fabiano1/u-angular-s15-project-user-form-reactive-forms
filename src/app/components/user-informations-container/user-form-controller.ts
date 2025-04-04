@@ -70,10 +70,14 @@ export class UserFormController {
 
   addDependent() {
     this.dependentsList.push(this.createDependentGroup());
+
+    this.dependentsList.markAsDirty();
   }
 
   removeDependent(dependentIndex: number) {
     this.dependentsList.removeAt(dependentIndex);
+
+    this.dependentsList.markAsDirty();
   }
 
   private createDependentGroup(dependent: IDependent | null = null) {

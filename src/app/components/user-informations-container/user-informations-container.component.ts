@@ -61,6 +61,10 @@ export class UserInformationsContainerComponent
     this.getStatesList(countryName);
   }
 
+  mostrarForm() {
+    console.log(this.userForm);
+  }
+
   private onUserFormStatusChange() {
     this.userForm.statusChanges
       .pipe(distinctUntilChanged())
