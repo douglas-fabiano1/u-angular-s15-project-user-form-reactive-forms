@@ -37,6 +37,7 @@ export class UserInformationsContainerComponent
   @Input({ required: true }) userSelected: IUser = {} as IUser;
 
   @Output('onFormStatusChange') onFormStatusChangeEmitt = new EventEmitter<boolean>();
+  @Output('onUserFormFirstChange') onUserFormFirstChangeEmitt = new EventEmitter<void>();
 
   ngOnInit() {
     this.onUserFormStatusChange();
@@ -53,6 +54,8 @@ export class UserInformationsContainerComponent
     if (HAS_USER_SELECTED) {
       this.fulfillUserForm(this.userSelected);
 
+      this.onUserFormFirstChange();
+
       this.getStatesList(this.userSelected.country);
     }
   }
@@ -63,6 +66,10 @@ export class UserInformationsContainerComponent
 
   mostrarForm() {
     console.log(this.userForm);
+  }
+
+  private onUserFormFirstChange() {
+    this.userForm.valueChanges.pipe(take(1)).subscribe(() => this.onUserFormFirstChangeEmitt.emit());
   }
 
   private onUserFormStatusChange() {
