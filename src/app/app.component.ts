@@ -1,8 +1,4 @@
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Component, OnInit } from '@angular/core';
-import { CountriesService } from './services/countries.service';
-import { StatesService } from './services/states.service';
-import { CitiesService } from './services/cities.service';
 import { UsersService } from './services/users.service';
 import { UsersListResponse } from './types/users-list-response';
 import { take } from 'rxjs';
@@ -10,6 +6,7 @@ import { IUser } from './interfaces/user/user-interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { IDialogConfirmationData } from './interfaces/dialog-confirmation-data.interface';
+import { UpdateUserService } from './services/update-user.service';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +26,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private readonly _usersService: UsersService,
+    private readonly _updateUserService: UpdateUserService,
     private readonly _matDialog: MatDialog
   ) { }
 
@@ -99,6 +97,16 @@ export class AppComponent implements OnInit {
   }
 
   private saveUserInfos() {
-    console.log('Valores Alterados!');
+    const newUser: IUser = this.convertUserFormToUser();
+
+    this._updateUserService.updateUser(newUser).subscribe((newUserResponse: IUser) => {
+      if (this.userSelectedIndex === undefined) return;
+
+      this.usersList[this.userSelectedIndex] = newUserResponse;
+    });
+  }
+
+  private convertUserFormToUser(): IUser {
+    return {} as IUser;
   }
 }
