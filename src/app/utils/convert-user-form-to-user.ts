@@ -34,12 +34,14 @@ const convertGeneraInformations = (generalInformations: IUserFormGeneralInformat
 }
 
 const convertPhoneList = (phoneList: IUserFormPhone[]): PhoneList => {
-  const newUserPhoneList: PhoneList = phoneList.map((phone) => ({
-    type: phone.type,
-    internationalCode: '+' + phone.number.substring(0, 2),
-    areaCode: phone.number.substring(2, 4),
-    number: formatNumber(phone.number.substring(4)),
-  }));
+  const newUserPhoneList: PhoneList = phoneList
+    .map((phone) => ({
+      type: phone.type,
+      internationalCode: '+' + phone.number.substring(0, 2),
+      areaCode: phone.number.substring(2, 4),
+      number: formatNumber(phone.number.substring(4)),
+    }))
+    .filter((phone) => phone.areaCode !== '');
 
   return newUserPhoneList;
 };
