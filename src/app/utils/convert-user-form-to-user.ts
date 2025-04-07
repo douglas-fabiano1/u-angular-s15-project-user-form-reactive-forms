@@ -47,14 +47,16 @@ const convertPhoneList = (phoneList: IUserFormPhone[]): PhoneList => {
 };
 
 const convertAddressList = (addressList: IUserFormAddress[]): AddressList => {
-  const newUserAddressList: AddressList = addressList.map((address) => ({
-    type: address.type,
-    street: address.street,
-    complement: address.complement,
-    country: address.country,
-    state: address.state,
-    city: address.city,
-  }));
+  const newUserAddressList: AddressList = addressList
+    .map((address) => ({
+      type: address.type,
+      street: address.street,
+      complement: address.complement,
+      country: address.country,
+      state: address.state,
+      city: address.city,
+    }))
+    .filter((address) => address.street !== '');
 
   return newUserAddressList;
 };
