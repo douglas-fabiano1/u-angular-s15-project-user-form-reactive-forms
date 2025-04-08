@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-buttons-container',
   standalone: false,
   templateUrl: './buttons-container.component.html',
-  styleUrl: './buttons-container.component.scss'
+  styleUrl: './buttons-container.component.scss',
 })
 export class ButtonsContainerComponent {
   @Input({ required: true }) isInEditMode: boolean = false;

@@ -6,8 +6,8 @@ import { IDialogConfirmationData } from '../../interfaces/dialog-confirmation-da
   selector: 'app-confirmation-dialog',
   standalone: false,
   templateUrl: './confirmation-dialog.component.html',
-  styleUrl: './confirmation-dialog.component.scss'
+  styleUrl: './confirmation-dialog.component.scss',
 })
 export class ConfirmationDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: IDialogConfirmationData) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: IDialogConfirmationData) {}
 }

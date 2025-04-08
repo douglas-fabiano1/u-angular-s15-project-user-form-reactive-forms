@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { MaritalStatusEnum } from "../enums/marital-status.enum";
-import { PhoneTypeEnum } from "../enums/phone-type.enum";
-import { AddressTypeEnum } from "../enums/address-type.enum";
-import { UsersListResponse } from "../types/users-list-response";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MaritalStatusEnum } from '../enums/marital-status.enum';
+import { PhoneTypeEnum } from '../enums/phone-type.enum';
+import { AddressTypeEnum } from '../enums/address-type.enum';
+import { UsersListResponse } from '../types/users-list-response';
 
 @Injectable({
   providedIn: 'root',
@@ -109,7 +109,7 @@ export class UsersService {
           name: 'Fulaninho',
           age: 5,
           document: 22011944800,
-        }
+        },
       ],
     },
     {
@@ -139,7 +139,7 @@ export class UsersService {
         },
       ],
       dependentsList: [],
-    }
+    },
   ];
 
   /* O método getUsers simula uma chamada http */

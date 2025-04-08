@@ -8,18 +8,21 @@ import { CitiesList } from '../types/cities-list';
   providedIn: 'root',
 })
 export class CitiesService {
-  constructor(private readonly _httpClient: HttpClient) { }
+  constructor(private readonly _httpClient: HttpClient) {}
 
   getCities(countryName: string, stateName: string): Observable<CitiesList> {
     return this._httpClient
-      .post<ICitiesResponse>('https://countriesnow.space/api/v0.1/countries/state/cities', {
-        country: countryName,
-        state: stateName,
-      })
+      .post<ICitiesResponse>(
+        'https://countriesnow.space/api/v0.1/countries/state/cities',
+        {
+          country: countryName,
+          state: stateName,
+        }
+      )
       .pipe(
         map((citiesResponse) => {
           return citiesResponse.data;
-        }),
+        })
       );
   }
 }

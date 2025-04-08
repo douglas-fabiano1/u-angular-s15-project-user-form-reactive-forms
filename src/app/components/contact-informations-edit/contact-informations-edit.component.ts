@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms';
   selector: 'app-contact-informations-edit',
   standalone: false,
   templateUrl: './contact-informations-edit.component.html',
-  styleUrl: './contact-informations-edit.component.scss'
+  styleUrl: './contact-informations-edit.component.scss',
 })
 export class ContactInformationsEditComponent {
   @Input({ required: true }) userForm!: FormGroup;

@@ -5,7 +5,7 @@ import { IUser } from '../../interfaces/user/user-interface';
   selector: 'app-general-informations',
   standalone: false,
   templateUrl: './general-informations.component.html',
-  styleUrl: './general-informations.component.scss'
+  styleUrl: './general-informations.component.scss',
 })
 export class GeneralInformationsComponent {
   @Input({ required: true }) user: IUser | undefined = {} as IUser;

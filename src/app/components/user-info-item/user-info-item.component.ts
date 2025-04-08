@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-user-info-item',
   standalone: false,
   templateUrl: './user-info-item.component.html',
-  styleUrl: './user-info-item.component.scss'
+  styleUrl: './user-info-item.component.scss',
 })
 export class UserInfoItemComponent {
   @Input() title: string | undefined | null = '';

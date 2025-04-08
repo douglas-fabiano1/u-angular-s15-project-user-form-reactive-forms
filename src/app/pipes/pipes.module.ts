@@ -5,7 +5,12 @@ import { PhoneMaskPipe } from './phone-mask.pipe';
 import { PhonePlaceholderPipe } from './phone-placeholder.pipe';
 
 @NgModule({
-  declarations: [MaritalStatusPipe, CpfPipe, PhoneMaskPipe, PhonePlaceholderPipe],
+  declarations: [
+    MaritalStatusPipe,
+    CpfPipe,
+    PhoneMaskPipe,
+    PhonePlaceholderPipe,
+  ],
   exports: [MaritalStatusPipe, CpfPipe, PhoneMaskPipe, PhonePlaceholderPipe],
 })
-export class PipesModule { }
+export class PipesModule {}

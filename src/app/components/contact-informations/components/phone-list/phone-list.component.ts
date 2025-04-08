@@ -27,11 +27,14 @@ export class PhoneListComponent implements OnChanges {
   preparePhoneListToDisplay() {
     this.phoneListToDisplay = [];
 
-    const originalUserPhoneList = this.userPhoneList && this.userPhoneList.length > 0 ? this.userPhoneList : [];
+    const originalUserPhoneList =
+      this.userPhoneList && this.userPhoneList.length > 0
+        ? this.userPhoneList
+        : [];
 
     preparePhoneList(originalUserPhoneList, true, (phone) => {
       this.phoneListToDisplay.push(phone);
-    })
+    });
   }
 
   formatPhoneNumber(phone: IPhone) {

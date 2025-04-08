@@ -24,4 +24,4 @@ registerLocaleData(localePt, 'pt-BR');
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

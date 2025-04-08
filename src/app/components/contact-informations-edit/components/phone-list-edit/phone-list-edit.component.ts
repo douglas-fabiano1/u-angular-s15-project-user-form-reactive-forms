@@ -5,7 +5,7 @@ import { FormArray, FormGroup } from '@angular/forms';
   selector: 'app-phone-list-edit',
   standalone: false,
   templateUrl: './phone-list-edit.component.html',
-  styleUrl: './phone-list-edit.component.scss'
+  styleUrl: './phone-list-edit.component.scss',
 })
 export class PhoneListEditComponent {
   @Input({ required: true }) userForm!: FormGroup;

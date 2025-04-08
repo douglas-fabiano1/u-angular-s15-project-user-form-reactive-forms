@@ -190,7 +190,10 @@ export class UserFormController {
   }
 
   private watchUserFormValueChangesAndUpdateService() {
-    this.userForm.valueChanges.subscribe(() =>
-      this._userFormRawValueService.userFormRawValue = this.userForm.getRawValue());
+    this.userForm.valueChanges.subscribe(
+      () =>
+        (this._userFormRawValueService.userFormRawValue =
+          this.userForm.getRawValue())
+    );
   }
 }

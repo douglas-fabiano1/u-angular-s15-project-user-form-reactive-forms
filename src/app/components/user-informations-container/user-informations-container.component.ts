@@ -24,7 +24,8 @@ import { StatesService } from '../../services/states.service';
 })
 export class UserInformationsContainerComponent
   extends UserFormController
-  implements OnInit, OnChanges {
+  implements OnInit, OnChanges
+{
   currentTabIndex: number = 0;
 
   countriesList: CountriesList = [];
@@ -38,8 +39,10 @@ export class UserInformationsContainerComponent
   @Input({ required: true }) isInEditMode: boolean = false;
   @Input({ required: true }) userSelected: IUser = {} as IUser;
 
-  @Output('onFormStatusChange') onFormStatusChangeEmitt = new EventEmitter<boolean>();
-  @Output('onUserFormFirstChange') onUserFormFirstChangeEmitt = new EventEmitter<void>();
+  @Output('onFormStatusChange') onFormStatusChangeEmitt =
+    new EventEmitter<boolean>();
+  @Output('onUserFormFirstChange') onUserFormFirstChangeEmitt =
+    new EventEmitter<void>();
 
   ngOnInit() {
     this.onUserFormStatusChange();
@@ -54,7 +57,8 @@ export class UserInformationsContainerComponent
       Object.keys(changes['userSelected'].currentValue).length > 0;
 
     if (HAS_USER_SELECTED) {
-      if (this.userFormValueChangesSubs) this.userFormValueChangesSubs.unsubscribe();
+      if (this.userFormValueChangesSubs)
+        this.userFormValueChangesSubs.unsubscribe();
       this.fulfillUserForm(this.userSelected);
 
       this.onUserFormFirstChange();
@@ -72,7 +76,9 @@ export class UserInformationsContainerComponent
   }
 
   private onUserFormFirstChange() {
-    this.userFormValueChangesSubs = this.userForm.valueChanges.pipe(take(1)).subscribe(() => this.onUserFormFirstChangeEmitt.emit());
+    this.userFormValueChangesSubs = this.userForm.valueChanges
+      .pipe(take(1))
+      .subscribe(() => this.onUserFormFirstChangeEmitt.emit());
   }
 
   private onUserFormStatusChange() {
