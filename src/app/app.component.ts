@@ -112,13 +112,9 @@ export class AppComponent implements OnInit {
   }
 
   private saveUserInfos() {
-    console.log('before conversion', structuredClone(this.userSelected));
-
     const newUser: IUser = convertUserFormToUser(
       this._userFormRawValueService.userFormRawValue
     );
-
-    console.log('after conversion', structuredClone(this.userSelected));
 
     this._updateUserService
       .updateUser(newUser)

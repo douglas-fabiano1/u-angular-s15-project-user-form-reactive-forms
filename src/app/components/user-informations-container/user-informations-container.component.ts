@@ -71,10 +71,6 @@ export class UserInformationsContainerComponent
     this.getStatesList(countryName);
   }
 
-  mostrarForm() {
-    console.log(this.userForm);
-  }
-
   private onUserFormFirstChange() {
     this.userFormValueChangesSubs = this.userForm.valueChanges
       .pipe(take(1))
